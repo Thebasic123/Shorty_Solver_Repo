@@ -3,8 +3,8 @@ Six-Plus Hold'em aka Short-Deck Hold'em
 
 #unlike normal Texas Hold'em, we get rid of all the 2-5 from a deck, make a deck 36 cards instead of 52.
 
-In this project,we use C++ as backend application and Java-script for front-end web-app.
-
+In this project,we use C++ as backend application. 
+Frond-end tech hasn't been decided yet. 
 Design:
 
 Hand class to contain all the information for a poker hand
