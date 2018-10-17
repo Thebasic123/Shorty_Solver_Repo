@@ -36,5 +36,5 @@ std::vector<std::string> covert_card_index_to_card_str_vector(const std::vector<
 std::vector<double> get_hands_equity
 	(const std::vector<std::vector<int>>& hole_cards,
 		const std::vector<int>& board,const std::vector<int>& deadCards);
-	
+std::vector<std::string> splitString(const std::string& inputStr,const std::string& delimiter);
 #endif

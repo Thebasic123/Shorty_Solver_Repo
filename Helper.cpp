@@ -239,3 +239,18 @@ std::vector<double> get_hands_equity
 	}
 	return result;
 }
+std::vector<std::string> splitString(const std::string& inputStr,const std::string& delimiter=" "){
+    std::vector<std::string> result;
+    if(inputStr.length()==0){
+        return result;
+    }
+    size_t pos = 0;
+    std::string token;
+    std::string s = inputStr;
+    while((pos = s.find(delimiter))!= std::string::npos){
+        token = s.substr(0,pos);
+        result.push_back(token);
+        s.erase(0,pos+delimiter.length());
+    }
+    return result;
+}    
