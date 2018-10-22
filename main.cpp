@@ -57,7 +57,7 @@ int main(int argc, char *argv[]){
 		equity_result = std::move(get_hands_equity(hole_cards,board,deadCards));
 
 		std::cout << std::fixed;
-   		std::cout << std::setprecision(2);
+   		std::cout << std::setprecision(4);
 		for(unsigned int i=0;i<equity_result.size();i++){
 			std::cout<<equity_result[i]<<std::endl;
 		}
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]){
 		std::vector<double> equity_result;
 		equity_result = std::move(get_hands_equity(hole_cards,board,deadCards));
 		std::cout << std::fixed;
-   		std::cout << std::setprecision(2);
+   		std::cout << std::setprecision(4);
 		for(unsigned int i=0;i<equity_result.size();i++){
 			std::cout<<"Range "<<i<<" equity:"<<equity_result[i]<<std::endl;
 		}
