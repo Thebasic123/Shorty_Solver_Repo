@@ -32,7 +32,8 @@ public:
 	void remove_cards(const std::vector<int>& unprocessed_cards);
 	void remove_all_cards();
 	void update_hand_strength();
-
+	//return the hand strength in string in English
+	std::string get_hand_strength_str();
 	int get_num_cards() const{
 		return num_cards;
 	}
@@ -49,5 +50,6 @@ public:
 			return hand_strength;
 		}
 	}
+
 };
 #endif

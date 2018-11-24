@@ -46,8 +46,10 @@ std::vector<std::vector<int>> get_combos(const std::vector<int>& known_cards,int
 		return result;
 	}
 	//pre reserve space for huge vector
-	long long int pre_size = calculate_num_combos(remaining_cards.size(),k);
-	result.reserve(pre_size);
+	//maybe try not to reserve
+
+	// long long int pre_size = calculate_num_combos(remaining_cards.size(),k);
+	// result.reserve(pre_size);
 	std::vector<int> curr_combo;
 	find_combo(result,curr_combo,remaining_cards,0,k);
 	return result;

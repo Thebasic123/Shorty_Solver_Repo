@@ -241,15 +241,15 @@ void Hand::update_hand_strength(){
 			hand_strength_signature = hand_strength_signature << 9;
 			hand_strength_signature += (1<<has_trips[1]);
 		}
-	}else if(has_stright){
-		hand_strength_ranking = 5;
-		hand_strength_signature = curr_highest_straight;
 	}else if(has_trips.size() > 0){
-		hand_strength_ranking = 4;
+		hand_strength_ranking = 5;
 		hand_strength_signature = (1<<has_trips[0]);
 		hand_strength_signature = hand_strength_signature << 9;
 		hand_strength_signature += (1<<has_nothing_ranks[0]);
 		hand_strength_signature += (1<<has_nothing_ranks[1]);
+	}else if(has_stright){
+		hand_strength_ranking = 4;
+		hand_strength_signature = curr_highest_straight;
 	}else if(has_pairs.size()>=2){
 		hand_strength_ranking = 3;
 		hand_strength_signature = (1<<has_pairs[0]);
@@ -277,5 +277,35 @@ void Hand::update_hand_strength(){
 
 }
 
-
+std::string Hand::get_hand_strength_str(){
+	if(!valid_hand_strength){
+		update_hand_strength();
+	}
+	std::string result;
+	//get the most significant bit of hand strength first
+	unsigned int hand_strength_bits = 15;
+	unsigned int curr_hand_ranking = (hand_strength>>28) & hand_strength_bits;
+	if(curr_hand_ranking==1){
+		result += "High Card";
+	}else if(curr_hand_ranking==2){
+		result += "One Pair";
+	}else if(curr_hand_ranking==3){
+		result += "Two Pair";
+	}else if(curr_hand_ranking==4){
+		result += "Straight";
+	}else if(curr_hand_ranking==5){
+		result += "Three of a kind";
+	}else if(curr_hand_ranking==6){
+		result += "Full House";
+	}else if(curr_hand_ranking==7){
+		result += "Flush";
+	}else if(curr_hand_ranking==8){
+		result += "Four of a kind";
+	}else if(curr_hand_ranking==9){
+		result += "Stright Flush";
+	}else if(curr_hand_ranking==10){
+		result += "Royal Flush";
+	}
+	return result;
+}
 
